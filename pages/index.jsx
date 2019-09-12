@@ -1,4 +1,6 @@
 import "../style.css"
+import "../style.scss"
+
 import Layout from '../components/MainLayout.jsx'
 
 const Index = () => (<div>
