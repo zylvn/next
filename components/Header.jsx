@@ -25,6 +25,10 @@ const Header = () => (
           <Link href="/">
             <a className="nav-Link">Home</a>
           </Link>
+          <Link href="/about">
+            <a className="nav-Link">About</a>
+          </Link>
+
         </li>
       </ul>
     </div>
