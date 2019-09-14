@@ -16,7 +16,7 @@ console.log(this.props)
 return(
 
   <Layout>
-    <p>This is the User page</p>
+    <p>This is the User page {this.props.name}</p>
   </Layout>
 )
 
