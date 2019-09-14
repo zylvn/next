@@ -7,34 +7,38 @@ import Layout from '../components/MainLayout.jsx'
 const Index = (props) => {
 
 // console.log(props);
-
+const { posts }=props;
 return (
-  <div>
+  // <div>
   <Layout>
     <p className="example">Hello Next.js</p>
-
-    <div className="card text-white bg-primary mb-3">
-      <div className="card-header">Header</div>
+  <div className='container'>
+    {posts.map(post=>(
+    <div className="card text-white bg-primary mb-3" key={post.id}>
+      <div className="card-header">{post.title}</div>
       <div className="card-body">
-        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p className="card-text">{post.body}</p>
       </div>
     </div>
+))}
+  </div>
 
 
   </Layout>
 
-</div>)};
+// </div>
+)};
 
 
-Index.getInitialProps = async ()=>{
+Index.getInitialProps = async (context)=>{
 
-// console.log("Hi");
+// console.log(context);
 
 // const data = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-const data = await fetch('https://jsonplaceholder.typicode.com/todos');
+const data = await fetch('https://jsonplaceholder.typicode.com/posts');
 // console.log(data);
 const result = await data.json();
-// console.log(result);
+console.log(result);
 return{posts:result};
 };
 
