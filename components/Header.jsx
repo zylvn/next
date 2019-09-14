@@ -28,11 +28,30 @@ const Header = () => (
           <Link href="/about">
             <a className="nav-Link">About</a>
           </Link>
-
+          <Link href="/user">
+            <a className="nav-Link">User</a>
+          </Link>
         </li>
       </ul>
     </div>
   </nav>
+
+
+
+  {/* <ul className="">
+    <li className="nav-item">
+      <Link href="/">
+        <a className="nav-Link">Home</a>
+      </Link>
+      <Link href="/about">
+        <a className="nav-Link">About</a>
+      </Link>
+      <Link href="/user">
+        <a className="nav-Link">User</a>
+      </Link>
+    </li>
+  </ul> */}
+
 </div>)
 
 export default Header
