@@ -38,7 +38,7 @@ Index.getInitialProps = async (context)=>{
 const data = await fetch('https://jsonplaceholder.typicode.com/posts');
 // console.log(data);
 const result = await data.json();
-console.log(result);
+// console.log(result);
 return{posts:result};
 };
 

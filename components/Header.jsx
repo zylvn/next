@@ -31,6 +31,9 @@ const Header = () => (
           <Link href="/user">
             <a className="nav-Link">User</a>
           </Link>
+          <Link href="/user?name=vaan" as='/user/vaan'>
+            <a className="nav-Link">User Vaan</a>
+          </Link>
         </li>
       </ul>
     </div>

@@ -1,3 +1,4 @@
+//SImple form
 import Layout from '../components/MainLayout.jsx'
 
 export default() => (<div>
