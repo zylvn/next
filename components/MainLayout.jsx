@@ -7,14 +7,13 @@ const layoutStyle = {
   // border: '1px solid #DDD'
 }
 
-const Layout = (props) => (<div style={layoutStyle}>
+const Layout = ({children}) => (<div style={layoutStyle}>
 
   <Head>
     <title>my title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
   </Head>
-  <Header/>
-   {props.children}
+  <Header/> {children}
 </div>)
 
 export default Layout
