@@ -10,8 +10,8 @@ const Index = (props) => {
 const { posts }=props;
 return (
   // <div>
-  <Layout>
-    <p className="example">Hello Next.js</p>
+  <Layout title="Hello Next.js">
+
   <div className='container'>
     {posts.map(post=>(
     <div className="card text-white bg-primary mb-3" key={post.id}>
