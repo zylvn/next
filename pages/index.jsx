@@ -5,9 +5,8 @@ import fetch from 'isomorphic-unfetch'
 import Layout from '../components/MainLayout.jsx'
 
 const Index = (props) => {
-
-// console.log(props);
 const { posts }=props;
+
 return (
   // <div>
   <Layout title="Hello Next.js">
