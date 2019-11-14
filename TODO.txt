@@ -1,0 +1,8 @@
+- Rename the file "RENAME_ME" into ".env"
+- Inside mongoose-atlas-test.js,
+  => Update the connectionString so that it's yours
+
+- Run in the terminal the command as follows to create a new user:
+  node ./mongoose-atlas-test.js --user=yann1234
+
+- Check on Atlas the creation of the user with username "yann1234"

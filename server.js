@@ -1,56 +1,25 @@
+require('dotenv').config();
 const express = require('express')
 const next = require('next')
+const mongoose = require('mongoose');
+const { connectDb }= require('./models')
+
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({
   dev
 });
 
-///Seems useless
-// require('dotenv').config();
-///
-
-const mongoose = require('mongoose');
-// mongoose.connect('mongodb+srv://vaan:trygun#@cluster0-nucaz.mongodb.net/test?retryWrites=true&w=majority', {
-//   useNewUrlParser: true
-// });
-
-
-// mongoose.connect('mongodb://localhost/localdb', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// });
-const mongo = require('mongodb').MongoClient;
-const url = 'mongodb://uwgvmecjhwegxe8gd1q4:oYiyl0feEiqj9xpUcA8P@bkflbpzgdzgflvs-mongodb.services.clever-cloud.com:27017/bkflbpzgdzgflvs';
-
-
-mongo.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}, (err, client) => {
-  console.log("DB connected");
-  if (err) {
-    console.error(err)
-    return
-  }
-  //...
-});
-
-//
-// const db = mongoose.connection;
-// db.once('open', () => console.log("Connected to Database"));
-///
-
-
-
+// Il y avait le caractere "#" (je l'ai enlevé) juste avant le "@cluster0-nucaz.mongodb.net/test?retryWrites=true&w=majority", le souci venait peut-etre de là, re-verifie sur Atlas je pense
+const connectionString = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0-nucaz.mongodb.net/test?retryWrites=true&w=majority`;
 
 const handle = app.getRequestHandler();
 
 app.prepare()
   .then(() => {
-
+    return connectDb(connectionString);
+  })
+  .then((connector) => {
     const server = express();
-
-
 
     server.get('/user/:name', (req, res) => {
       app.render(req, res, '/user', {

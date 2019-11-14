@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -32,4 +33,4 @@ userSchema.pre('remove', function(next) {
 
 
 const User = mongoose.model('User', userSchema);
-export default User;
+module.exports = User;

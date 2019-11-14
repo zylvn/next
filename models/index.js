@@ -1,16 +1,21 @@
-DATABASE_URL = 'mongodb: //localhost:27017/node-express-mongodb-server'
+// DATABASE_URL = 'mongodb: //localhost:27017/node-express-mongodb-server'
 
-import mongoose from 'mongoose';
-import User from './user';
-import Message from './message';
-const connectDb = () => {
-  return mongoose.connect(process.env.DATABASE_URL);
+const mongoose = require('mongoose');
+const User = require('./user');
+const Message = require('./message');
+
+
+const connectDb = (connectionString) => {
+  return mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 };
 const models = {
   User,
   Message
 };
-export {
+module.exports = {
+  models,
   connectDb
 };
-export default models;
